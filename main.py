@@ -1,50 +1,60 @@
-print("hello")
+katalogus = (
+    {"szerzo": "Ernest Hemingway", "cim": "Az öreg halász és a tenger", "kiadas": 1952},
+    {"szerzo": "Lev Tolsztoj", "cim": "Háború és béke", "kiadas": 1869},
+    {"szerzo": "William Golding", "cim": "Legyek ura", "kiadas": 1954},
+    {"forras": "ceges könyvtár", "katalogus": (
+        {"szerzo": "Giovanni Boccaccio", "cim": "Dekameron", "kiadas": 1353},
+        {"szerzo": "Miguel de Cervantes", "cim": "Don Quijote", "kiadas": 1605},
+        {"szerzo": "Umberto Eco", "cim": "A rózsa neve", "kiadas": 1980},
+        {"szerzo": "Gabriel García Márquez", "cim": "Száz év magány", "kiadas": 1967},
+        {"szerzo": "Thomas Mann", "cim": "A varázshegy", "kiadas": 1924},
+        {"szerzo": "Bulgakov Mihail", "cim": "A Mester és Margarita", "kiadas": 1967},
+    )},
+    {"szerzo": "Robert Merle", "cim": "Malevil", "kiadas": 1972},
+    {"szerzo": "Philip K. Dick", "cim": "VALIS", "kiadas": 1981},
+    {"szerzo": "Philip K. Dick", "cim": "Kamera által homályosan", "kiadas": 1977},
+    {"szerzo": "Albert Camus", "cim": "A pestis", "kiadas": 1947},
+    {"szerzo": "Joseph Conrad", "cim": "A sötétség mélyén", "kiadas": 1899},
+    {"szerzo": "Cormac McCarthy", "cim": "Az út", "kiadas": 2006},
+    {"szerzo": "Joseph Heller", "cim": "Valami történt", "kiadas": 1974},
+    {"szerzo": "Milan Kundera", "cim": "A lét elviselhetetlen könnyűsége", "kiadas": 1984},
+    {"forras": "fiókkönyvtár", "katalogus": (
+        {"szerzo": "Franz Kafka", "cim": "A per", "kiadas": 1925},
+        {"szerzo": "Hermann Hesse", "cim": "Sziddhárta", "kiadas": 1922},
+        {"szerzo": "Fyodor Dosztojevszkij", "cim": "Bűn és bűnhődés", "kiadas": 1866},
+        {"szerzo": "Fyodor Dosztojevszkij", "cim": "A Karamazov testvérek", "kiadas": 1880},
+        {"forras": "magángyűjtemény", "katalogus": (
+            {"szerzo": "Stanislaw Lem", "cim": "Solaris", "kiadas": 1961},
+            {"szerzo": "Arthur C. Clarke", "cim": "2001: Űrodüsszeia", "kiadas": 1968},
+            {"szerzo": "Ursula K. Le Guin", "cim": "A sötétség balkeze", "kiadas": 1969},
+        )},
+        {"szerzo": "Hermann Hesse", "cim": "A pusztai farkas", "kiadas": 1927}
+    )},
+    {"szerzo": "George Orwell", "cim": "1984", "kiadas": 1949},
+    {"szerzo": "Aldous Huxley", "cim": "Szép új világ", "kiadas": 1932},
+    {"szerzo": "Ray Bradbury", "cim": "Fahrenheit 451", "kiadas": 1953}
+)
 
-# ez egy komment
+#print(katalogus)
 
-"""
-többsoros
-komment
-"""
+def keres(katalogus, szerzo=None, cim=None, kiadas=None):
+    talalatok = []
+    for elem in katalogus:
+            #print(elem)
+            if "katalogus" in elem:
+                print("Uj katalogus: " + elem["forras"])
+            ererdmeny = keres(elem["katalogus"], szerzo, cim, kiadas)
+        print(str(elem["forras"] + "-ban talált eredmény: " + str(ererdmeny))
+              elif "cim" in elem:
+            if (cim is None or cim in elem["cim"] and (szerzo is None or szerzo in elem["szerzo"]) and (kiadas is None or (isinstance(kiadas, tuple) and kiadas[0] <= elem["kiadas"] <= kiadas[1]) or elem["kiadas"] == kiadas):
+                talalatok.append(elem)
 
-x = 10
-print(x)
+                return talalatok
 
-nev = "Valaki"
-print(nev)
+print(keres(katalogus, szerzo="il"))
+#print(keres(katalogus, kiadas=1967))
+#print(keres(katalogus, szerzo="un", kiadas=(1900, 2010)))
+#print(keres(katalogus, cim="ég"))
 
-print([1, 2, 3, 4, 5])
-
-print(range(5))
-
-szotar = {"név": "Anna", "kor": 20}
-print(szotar)
-logikai = True
-print(logikai)
-
-ertek = None
-print(ertek)
-
-PI = 3.14
-print(PI)
-
-x = 5
-y = 3
-print("x mod y: " + str(x % y))
-
-if y > 5:
-    print("y nagyobb mint 5")
-    if y % 2 == 0:
-        print("y páros és nagyobb mint 5")
-
-else:
-    print("y kisebb vagy egyenlő mint 5")
-
-for i in range(5):
-        print(i)
-
-def osszead(a, b):
-    osszeg = a + b
-    return osszeg
 
 
