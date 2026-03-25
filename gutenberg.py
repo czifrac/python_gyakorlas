@@ -5,7 +5,7 @@ from typing import List
 START_URL = "https://gutendex.com/books/?languages=hu"
 OUTPUT_CSV = "talalatok.csv"
 MAX_PAGES = 4
-TIMEOUT = 10  # másodperc
+TIMEOUT = 200
 
 def join_authors(authors: List[dict]) -> str:
     names = [a.get("name", "").strip() for a in authors if a.get("name")]
