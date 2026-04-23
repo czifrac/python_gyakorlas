@@ -1,39 +1,22 @@
-class Dokumentum:
-    def __init__(self, cim):
-        self.cim = cim
+def szam_generator():
+    for szam in range(1, 6):
+        yield szam
 
 
-class Film(Dokumentum):
-    def __init__(self, cim, rendezo, ev):
-        super().__init__(cim)
-        self.rendezo = rendezo
-        self.ev = ev
+def paros_generator():
+    for szam in range(0, 11, 2):
+        yield szam
 
-    def leiras(self):
-        print(f"{self.rendezo} - {self.cim}")
+negyzet = lambda x: x ** 2
+print(negyzet(4))
 
-    def regi_e(self):
-        return self.ev < 2000
+paratlan_harom = [x * 3 for x in range(1, 11) if x % 2 == 1]
+print(paratlan_harom)
 
-
-class Konyv(Dokumentum):
-    def __init__(self, cim, szerzo, oldalszam):
-        super().__init__(cim)
-        self.szerzo = szerzo
-        self.oldalszam = oldalszam
-
-    def hosszu_e(self):
-        return self.oldalszam > 300
-
-    def leiras(self):
-        print(f"Könyv: {self.szerzo} - {self.cim}, {self.oldalszam} oldal")
-
-
-class Folyoirat(Dokumentum):
-    def __init__(self, cim, evfolyam, szam):
-        super().__init__(cim)
-        self.evfolyam = evfolyam
-        self.szam = szam
-
-    def leiras(self):
-        print(f"Folyóirat: {self.cim}, {self.evfolyam}. évfolyam, {self.szam}. szám")
+lista = [10, 15, 20, 25]
+# Mindet megszorozzuk 3-mal
+szorozva = list(map(lambda x: x * 3, lista))
+print(szorozva)  # [30, 45, 60, 75]
+# Csak a 20 felettiek
+husz_felett = list(filter(lambda x: x > 20, lista))
+print(husz_felett)  # [25]

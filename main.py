@@ -43,13 +43,7 @@ def keres(katalogus, szerzo=None, cim=None, kiadas=None):
             #print(elem)
             if "katalogus" in elem:
                 print("Uj katalogus: " + elem["forras"])
-            ererdmeny = keres(elem["katalogus"], szerzo, cim, kiadas)
-        print(str(elem["forras"] + "-ban talált eredmény: " + str(ererdmeny))
-              elif "cim" in elem:
-            if (cim is None or cim in elem["cim"] and (szerzo is None or szerzo in elem["szerzo"]) and (kiadas is None or (isinstance(kiadas, tuple) and kiadas[0] <= elem["kiadas"] <= kiadas[1]) or elem["kiadas"] == kiadas):
-                talalatok.append(elem)
 
-                return talalatok
 
 print(keres(katalogus, szerzo="il"))
 #print(keres(katalogus, kiadas=1967))
